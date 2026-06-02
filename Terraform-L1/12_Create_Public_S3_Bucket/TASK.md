@@ -1,6 +1,6 @@
 As part of the data migration process, the Nautilus DevOps team is actively creating several S3 buckets on AWS. They plan to utilize both private and public S3 buckets to store the relevant data. Given the ongoing migration of other infrastructure to AWS, it is logical to consolidate data storage within the AWS environment as well.
 
-Create a public S3 bucket named datacenter-s3-14281 using Terraform.
+Create a public S3 bucket named xfusion-s3-15147 using Terraform.
 
 Ensure the bucket is accessible publicly once created by setting the proper ACL.
 
@@ -10,5 +10,5 @@ Notes:
 
 Create the resources only in the us-east-1 region.
 Right-click under the EXPLORER section in VS Code and select Open in Integrated Terminal to launch the terminal.
-The name of the S3 bucket should be based on datacenter-s3-14281.
+The name of the S3 bucket should be based on xfusion-s3-15147.
 You can use the ACL settings to ensure the bucket is publicly accessible.
