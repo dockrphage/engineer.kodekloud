@@ -1,0 +1,2 @@
+For this task, allocate an Elastic IP address named datacenter-eip using Terraform.
+The Terraform working directory is /home/bob/terraform. Create the main.tf file (do not create a different .tf file) to accomplish this task.
