@@ -153,6 +153,25 @@ a pinned lockfile requirements.txt is compiled from the corrected specification,
 
 #### ✅ **Solution**
 
+Short Answer
+```
+vim vim requirements.in
+        scikit-learn
+        mlflow
+        pandas
+        numpy
+
+uv pip compile requirements.in -o requirements.txt
+```
+Solution Logic
+```
+Standardize Specification: The existing requirements.in file was non-compliant. It was corrected to list only the four required top-level packages (scikit-learn, mlflow, pandas, numpy), a common practice for defining high-level project dependencies. Using bare package names delegates the resolution of compatible versions to the package manager.
+
+Compile Reproducible Dependencies: The uv pip compile command was used to resolve the dependency tree. This process finds the latest versions of the top-level packages that are compatible with each other and PyPI, then recursively resolves all their sub-dependencies (transitive dependencies).
+
+Generate Lockfile: The output was written to requirements.txt. This file serves as the "lockfile," pinning every single package to an exact version. This ensures that any teammate or environment using this lockfile will install the exact same dependency versions, guaranteeing consistency and reproducibility.
+```
+
 ---
 
 ## **Q4: Day 4 — Add a .gitignore and Untrack Committed Artifacts**  
