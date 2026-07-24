@@ -117,10 +117,28 @@ Updated upto Q0
 ### <a name="day-1-create-a-python-virtual-environment-for-ml"></a>
 
 #### 📝 **Task Description**  
-*(Paste official task description)*
+```
+The xFusionCorp Industries data science team requires a standardized Python environment for their new machine learning project. Set up a virtual environment on the controlplane host that includes all necessary ML libraries.
+
+
+The work is done on the controlplane host under /root/code/.
+
+The end state must satisfy the following:
+
+a Python virtual environment named ml-env exists under /root/code/;
+the environment has numpy, pandas, scikit-learn, and matplotlib installed;
+a requirements.txt capturing the installed packages is saved at /root/code/requirements.txt.
+```
 
 #### ✅ **Solution**  
-*(Your solution)*
+```
+python3 -m venv ml-env	#Create isolated Python environment
+source ml-env/bin/activate	#Activate environment to install packages correctly
+pip install numpy pandas scikit-learn matplotlib	#Install required ML libraries
+pip freeze > requirements.txt	#Capture and document exact dependency versions
+ls -la /root/code/ml-env/   # Verify
+cat /root/code/requirements.txt
+```
 
 ---
 
@@ -128,10 +146,31 @@ Updated upto Q0
 ### <a name="day-2-fix-a-broken-jupyterlab-server-configuration"></a>
 
 #### 📝 **Task Description**  
-*(Paste official task description)*
+```
+A teammate has configured a JupyterLab server for the xFusionCorp Industries data science team; however, the server is not functioning as expected. Inspect the configuration, diagnose any issues, and start the server.
+
+JupyterLab is already installed in the virtual environment at /root/code/ml-env/. The team's configuration file is at /root/code/jupyter_lab_config.py and is visible in the file explorer. Start the server with the config (e.g. /root/code/ml-env/bin/jupyter lab --config /root/code/jupyter_lab_config.py) and observe how it comes up so you can see what is misconfigured.
+
+The end state must satisfy the following:
+
+    the running server listens on port 8888;
+    it binds on 0.0.0.0;
+    the notebook root directory is /root/notebooks/, and that directory exists on disk.
+
+With the configuration corrected and JupyterLab running, the Jupyter UI button at the top of the lab opens the notebook interface.
+```
 
 #### ✅ **Solution**  
-*(Your solution)*
+```
+Edit the config file (port and ip)
+Create director
+Start given virtual env
+Start jupyter with given command
+    vim /root/code/jupyter_lab_config.py 
+    mkdir -p /root/notebooks
+    start virtual env
+    start jupyter with specified command 
+```
 
 ---
 
