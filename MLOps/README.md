@@ -241,8 +241,121 @@ Solution Logic
 ### <a name="day-5-fix-a-broken-ml-workflow-makefile"></a>
 
 #### 📝 **Task Description**
+```
+The xFusionCorp Industries Machine Learning team utilizes a Makefile to streamline essential tasks such as data processing, training, testing, and cleanup. A preliminary Makefile can be found at /root/code/fraud-detection/Makefile, but the execution of make all does not yield successful completion. Ensure that the Makefile is aligned with the team's standards.
+
+
+A Makefile lives in /root/code/fraud-detection/. Run make all from the project directory to see how it currently fails.
+
+The end state must satisfy the following:
+
+the Makefile declares these six targets and behaviour:
+setup – Creates a virtual environment at mlops-venv/ and installs dependencies from requirements.txt;
+data – Runs python3 src/data/process_data.py;
+train – Runs python3 src/models/train.py;
+test – Runs pytest tests/;
+clean – Recursively removes every __pycache__ directory, removes .pytest_cache, and clears the contents of models/;
+all – Runs setup, data, train, and test in that order;
+all six target names are declared as .PHONY so that Make never confuses them with files of the same name;
+make all completes without error.
+Makefile recipes must be indented with a real tab character, not spaces. Make rejects any recipe that is not tab-indented.
+
+Given Makefile
+# fraud-detection Makefile
+
+setup:
+	python3 -m venv mlops-venv && mlops-venv/bin/pip install -r requirements.txt
+
+data:
+    python3 src/data/process_data.py
+
+train:
+	python3 src/models/train.py
+
+test:
+	pytest tests/
+
+clean:
+	rm -rf __pycache__
+
+all: setup train test
+###########
+```
 
 #### ✅ **Solution**
+
+Short Ans
+```
+cd /root/code/fraud-detection
+# Corrected makefile
+vim Makefile
+        # fraud-detection Makefile
+
+        .PHONY: setup data train test clean all
+
+        setup:
+            python3 -m venv mlops-venv
+            ./mlops-venv/bin/pip install --upgrade pip
+            ./mlops-venv/bin/pip install -r requirements.txt
+
+        data:
+            python3 src/data/process_data.py
+
+        train:
+            python3 src/models/train.py
+
+        test:
+            pytest tests/
+
+        clean:
+            find . -type d -name "__pycache__" -exec rm -rf {} +
+            rm -rf .pytest_cache
+            rm -rf models/*
+
+        all: setup data train test
+#######
+
+
+```
+
+Solution Logic
+```
+Here is a concise, articulate summary of the solution approach for fixing the Makefile, structured to demonstrate clear technical reasoning.
+
+---
+
+## Solution Approach Summary: Fixing the Makefile
+
+### The Core Problem
+
+The Makefile fails because of **two categories of issues**:
+
+1. **Syntax Errors:** The `data` target uses spaces instead of tabs for indentation. Make is unforgiving about this—it requires literal tab characters before every command in a recipe.
+
+2. **Logical Omissions:** The `clean` target is incomplete, the `all` target omits the `data` step, and `.PHONY` declarations are missing entirely.
+
+---
+
+### The Solution Strategy
+
+The fix follows a **four-step approach** that addresses both syntax and logic:
+
+#### 1. Fix Indentation (Syntactic Correction)
+Replace the spaces on the `data` recipe with a tab character. This is the immediate breaking issue—without this, Make throws a "missing separator" error and stops.
+
+#### 2. Declare `.PHONY` Targets (Prevent Future Bugs)
+Add `.PHONY: setup data train test clean all` at the top of the file. This tells Make these are commands, not files. Without this, if a file named `setup` or `test` ever exists in the directory, Make would incorrectly think the target is already done and skip it.
+
+#### 3. Complete the Workflow Chain (Logical Correction)
+Add `data` to the `all` target's dependency list: `all: setup data train test`. This ensures the complete pipeline runs in the correct order: environment setup → data processing → model training → testing.
+
+#### 4. Enhance Cleanup (Thoroughness)
+Replace the limited `rm -rf __pycache__` with three commands:
+- `find . -type d -name "__pycache__" -exec rm -rf {} +` – recursively removes all Python cache directories
+- `rm -rf .pytest_cache` – removes pytest artifacts
+- `rm -rf models/*` – clears trained models while preserving the directory
+
+```
 
 ---
 
