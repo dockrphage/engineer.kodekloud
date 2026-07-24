@@ -403,6 +403,20 @@ Replace the limited `rm -rf __pycache__` with three commands:
 
 #### 📝 **Task Description**
 
+```
+The xFusionCorp Industries ML team enforces code quality standards using ruff and black for every pull request. The current project located at /root/code/fraud-detection/ is failing both tools. Apply the necessary modifications to ensure it passes the checks for both ruff and black.
+
+
+The project at /root/code/fraud-detection/ contains a pyproject.toml and sample sources under src/. ruff and black are already installed. From the project directory, run ruff check src/ and black --check src/ to see how they currently fail.
+
+The end state must satisfy the following:
+
+ruff and black are both configured with a line length of 120.
+ruff lint rule selection includes E, F, W, and I.
+Running ruff check src/ from the project directory exits with status 0.
+Running black --check src/ from the project directory exits with status 0.
+```
+
 #### ✅ **Solution**
 
 ---
