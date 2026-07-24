@@ -1,0 +1,1017 @@
+## **📌 100-Days-Of-MLOps : Q&A Index**
+Click any question below to jump to its answer.
+Updated upto Q0
+
+
+
+[Day 1](#day-1-create-a-python-virtual-environment-for-ml)  
+[Day 2](#day-2-fix-a-broken-jupyterlab-server-configuration)  
+[Day 3](#day-3-fix-a-broken-uv-lockfile-specification)  
+[Day 4](#day-4-add-a-gitignore-and-untrack-committed-artifacts)  
+[Day 5](#day-5-fix-a-broken-ml-workflow-makefile)  
+[Day 6](#day-6-fix-a-broken-ruff-and-black-configuration)  
+[Day 7](#day-7-test-and-package-the-fraud-detection-module)  
+[Day 8](#day-8-fix-a-broken-pre-commit-configuration)  
+[Day 9](#day-9-fix-a-broken-cookiecutter-template-for-ml-projects)  
+[Day 10](#day-10-initialize-dvc-in-an-existing-git-repository)  
+[Day 11](#day-11-track-a-dataset-with-dvc)  
+[Day 12](#day-12-fix-a-broken-dvc-remote-and-push-to-seaweedfs)  
+[Day 13](#day-13-pull-dvc-tracked-data-from-remote)  
+[Day 14](#day-14-create-a-dvc-pipeline-for-data-processing)  
+[Day 15](#day-15-parameterize-a-dvc-pipeline)  
+[Day 16](#day-16-track-ml-metrics-with-dvc)  
+[Day 17](#day-17-run-and-compare-dvc-experiments)  
+[Day 18](#day-18-version-datasets-and-models-across-git-branches)  
+[Day 19](#day-19-complete-a-production-dvc-pipeline-with-seaweedfs-remote)  
+[Day 20](#day-20-start-the-mlflow-tracking-server)  
+[Day 21](#day-21-log-an-ml-experiment-to-mlflow)  
+[Day 22](#day-22-create-and-organize-mlflow-experiments)  
+[Day 23](#day-23-search-compare-and-triage-mlflow-runs)  
+[Day 24](#day-24-enable-mlflow-autologging)  
+[Day 25](#day-25-register-version-and-manage-model-lifecycle)  
+[Day 26](#day-26-log-a-model-with-a-signature-and-validate-inputs)  
+[Day 27](#day-27-load-model-from-registry-with-custom-preprocessing)  
+[Day 28](#day-28-fix-a-broken-mlflow-project-and-re-run-it)  
+[Day 29](#day-29-fix-mlflows-remote-artifact-store-wiring-postgresql--seaweedfs)  
+[Day 30](#day-30-end-to-end-mlflow-register-serve-and-monitor-the-champion)  
+[Day 31](#day-31-fix-a-broken-config-driven-training-setup)  
+[Day 32](#day-32-make-a-training-script-reproducible-seed-discipline)  
+[Day 33](#day-33-fix-a-broken-evaluation-script-and-metrics-report)  
+[Day 34](#day-34-fix-a-broken-cross-validation-loop-stratified--aggregates)  
+[Day 35](#day-35-fix-a-broken-optuna-tuner-with-mlflow-logging)  
+[Day 36](#day-36-fix-a-multi-model-bake-off-in-the-mlflow-compare-view)  
+[Day 37](#day-37-fix-a-four-stage-training-pipelines-inter-stage-wiring)  
+[Day 38](#day-38-fix-a-parallel-training-bake-off-n_jobs-backend)  
+[Day 39](#day-39-make-a-pytorch-trainer-device-aware-with-checkpointing)  
+[Day 40](#day-40-fix-and-complete-a-five-stage-training-capstone)  
+[Day 41](#day-41-scaffold-a-feast-feature-repository-and-build-a-training-set)  
+[Day 42](#day-42-define-a-feast-feature-view-entity--field-schema)  
+[Day 43](#day-43-materialize-features-and-read-them-from-the-online-store)  
+[Day 44](#day-44-store-mlflows-admin-password-in-hashicorp-vault)  
+[Day 45](#day-45-authenticate-mlflow-to-vault-via-approle-and-fix-its-kv-policy)  
+[Day 46](#day-46-author-data-quality-expectations-with-great-expectations)  
+[Day 47](#day-47-debug-a-failing-great-expectations-checkpoint)  
+[Day 48](#day-48-enforce-a-data-quality-checkpoint-as-a-blocking-ci-gate)  
+[Day 49](#day-49-secrets--data-quality-integration-capstone)  
+[Day 50](#day-50-create-docker-image-for-ml-training-environment)  
+[Day 51](#day-51-create-multi-stage-docker-build-for-ml-serving)  
+[Day 52](#day-52-fix-a-broken-jupyter--mlflow--seaweedfs-compose-stack)  
+[Day 53](#day-53-fix-a-broken-pytorch-dockerfile-cpu-wheel-url)  
+[Day 54](#day-54-push-ml-model-images-to-container-registry)  
+[Day 55](#day-55-fix-a-broken-dockerfile-healthcheck-and-expose)  
+[Day 56](#day-56-fix-a-docker-ci-pipeline-with-git-sha-tagging)  
+[Day 57](#day-57-serve-an-ml-model-with-flask)  
+[Day 58](#day-58-serve-an-ml-model-with-fastapi)  
+[Day 59](#day-59-run-batch-predictions-on-a-dataset)  
+[Day 60](#day-60-package-a-model-as-a-bentoml-service)  
+[Day 61](#day-61-deploy-a-model-serving-container-via-portainer)  
+[Day 62](#day-62-implement-ab-testing-for-model-deployment)  
+[Day 63](#day-63-async-predictions-with-a-redis-backed-worker)  
+[Day 64](#day-64-serve-multiple-models-behind-unified-api-gateway)  
+[Day 65](#day-65-simulate-a-canary-rollout-for-model-updates)  
+[Day 66](#day-66-production-model-serving-with-docker-compose)  
+[Day 67](#day-67-add-prometheus-as-a-grafana-data-source)  
+[Day 68](#day-68-build-a-grafana-time-series-panel-for-prediction-accuracy)  
+[Day 69](#day-69-build-a-grafana-table-panel-for-per-feature-data-drift)  
+[Day 70](#day-70-enforce-accuracy-gates-with-an-evidently-test-suite-and-a-grafana-alert)  
+[Day 71](#day-71-build-a-4-panel-model-overview-grafana-dashboard)  
+[Day 72](#day-72-configure-a-grafana-contact-point-and-notification-policy)  
+[Day 73](#day-73-promote-a-retrained-model-via-a-championchallenger-gate)  
+[Day 74](#day-74-add-a-custom-business-metric-and-a-grafana-version-variable)  
+[Day 75](#day-75-fix-and-complete-an-end-to-end-monitoring-stack-prometheus-grafana-evidently)  
+[Day 76](#day-76-create-ci-pipeline-for-ml-code-linting-and-testing)  
+[Day 77](#day-77-fix-a-failing-data-quality-job-in-gitea-actions)  
+[Day 78](#day-78-parallelise-tests-via-a-gitea-actions-matrix-strategy)  
+[Day 79](#day-79-publish-ci-training-artefacts-via-upload-artifact)  
+[Day 80](#day-80-wire-repository-secrets-into-a-gitea-actions-workflow)  
+[Day 81](#day-81-tag-a-release-and-publish-to-the-gitea-package-registry)  
+[Day 82](#day-82-compose-gitea-workflows-via-workflow_call)  
+[Day 83](#day-83-revert-a-broken-ml-release-via-the-gitea-revert-button)  
+[Day 84](#day-84-enforce-branch-protection-on-the-main-branch)  
+[Day 85](#day-85-submit-your-first-argo-workflow)  
+[Day 86](#day-86-fix-a-broken-argo-dag-dependency-chain)  
+[Day 87](#day-87-pass-data-between-argo-steps-with-output-parameters-and-branching)  
+[Day 88](#day-88-fix-a-missing-task-decorator-in-a-prefect-flow)  
+[Day 89](#day-89-parallel-model-training-with-argo-withparam-fan-out)  
+[Day 90](#day-90-automated-retraining-with-argo-cronworkflow)  
+[Day 91](#day-91-production-ml-pipeline-argo-workflows--mlflow-on-kubernetes)  
+[Day 92](#day-92-fix-a-service-targetport-mismatch-on-a-kubernetes-deployment)  
+[Day 93](#day-93-fix-a-broken-horizontalpodautoscaler-scaletargetref)  
+[Day 94](#day-94-fix-a-broken-kserve-inferenceservice-storageuri)  
+[Day 95](#day-95-complete-a-kubeflow-pipeline-and-run-it-via-the-kfp-ui)  
+[Day 96](#day-96-deploy-a-gitops-application-via-the-argocd-new-app-form)  
+[Day 97](#day-97-capstone-14-end-to-end-mlops-system--train-register-serve)  
+[Day 98](#day-98-capstone-24-monitoring-and-automated-retraining)  
+[Day 99](#day-99-capstone-34-gitops-continuous-deployment-with-argocd)  
+[Day 100](#day-100-capstone-44-close-the-loop-with-prometheus--grafana-observability)
+
+
+
+
+
+# ✅ **100 Days of MLOps — Full Q&A Sections**
+
+---
+
+## **Q1: Day 1 — Create a Python Virtual Environment for ML**  
+### <a name="day-1-create-a-python-virtual-environment-for-ml"></a>
+
+#### 📝 **Task Description**  
+*(Paste official task description)*
+
+#### ✅ **Solution**  
+*(Your solution)*
+
+---
+
+## **Q2: Day 2 — Fix a Broken JupyterLab Server Configuration**  
+### <a name="day-2-fix-a-broken-jupyterlab-server-configuration"></a>
+
+#### 📝 **Task Description**  
+*(Paste official task description)*
+
+#### ✅ **Solution**  
+*(Your solution)*
+
+---
+
+## **Q3: Day 3 — Fix a Broken uv Lockfile Specification**  
+### <a name="day-3-fix-a-broken-uv-lockfile-specification"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q4: Day 4 — Add a .gitignore and Untrack Committed Artifacts**  
+### <a name="day-4-add-a-gitignore-and-untrack-committed-artifacts"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q5: Day 5 — Fix a Broken ML Workflow Makefile**  
+### <a name="day-5-fix-a-broken-ml-workflow-makefile"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q6: Day 6 — Fix a Broken Ruff and Black Configuration**  
+### <a name="day-6-fix-a-broken-ruff-and-black-configuration"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q7: Day 7 — Test and Package the Fraud-Detection Module**  
+### <a name="day-7-test-and-package-the-fraud-detection-module"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q8: Day 8 — Fix a Broken pre-commit Configuration**  
+### <a name="day-8-fix-a-broken-pre-commit-configuration"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q9: Day 9 — Fix a Broken Cookiecutter Template for ML Projects**  
+### <a name="day-9-fix-a-broken-cookiecutter-template-for-ml-projects"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q10: Day 10 — Initialize DVC in an Existing Git Repository**  
+### <a name="day-10-initialize-dvc-in-an-existing-git-repository"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q11: Day 11 — Track a Dataset with DVC**  
+### <a name="day-11-track-a-dataset-with-dvc"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q12: Day 12 — Fix a Broken DVC Remote and Push to SeaweedFS**  
+### <a name="day-12-fix-a-broken-dvc-remote-and-push-to-seaweedfs"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q13: Day 13 — Pull DVC-Tracked Data from Remote**  
+### <a name="day-13-pull-dvc-tracked-data-from-remote"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q14: Day 14 — Create a DVC Pipeline for Data Processing**  
+### <a name="day-14-create-a-dvc-pipeline-for-data-processing"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q15: Day 15 — Parameterize a DVC Pipeline**  
+### <a name="day-15-parameterize-a-dvc-pipeline"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q16: Day 16 — Track ML Metrics with DVC**  
+### <a name="day-16-track-ml-metrics-with-dvc"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q17: Day 17 — Run and Compare DVC Experiments**  
+### <a name="day-17-run-and-compare-dvc-experiments"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q18: Day 18 — Version Datasets and Models Across Git Branches**  
+### <a name="day-18-version-datasets-and-models-across-git-branches"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q19: Day 19 — Complete a Production DVC Pipeline with SeaweedFS Remote**  
+### <a name="day-19-complete-a-production-dvc-pipeline-with-seaweedfs-remote"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q20: Day 20 — Start the MLflow Tracking Server**  
+### <a name="day-20-start-the-mlflow-tracking-server"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q21: Day 21 — Log an ML Experiment to MLflow**  
+### <a name="day-21-log-an-ml-experiment-to-mlflow"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q22: Day 22 — Create and Organize MLflow Experiments**  
+### <a name="day-22-create-and-organize-mlflow-experiments"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q23: Day 23 — Search, Compare, and Triage MLflow Runs**  
+### <a name="day-23-search-compare-and-triage-mlflow-runs"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q24: Day 24 — Enable MLflow Autologging**  
+### <a name="day-24-enable-mlflow-autologging"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q25: Day 25 — Register, Version, and Manage Model Lifecycle**  
+### <a name="day-25-register-version-and-manage-model-lifecycle"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q26: Day 26 — Log a Model with a Signature and Validate Inputs**  
+### <a name="day-26-log-a-model-with-a-signature-and-validate-inputs"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q27: Day 27 — Load Model from Registry with Custom Preprocessing**  
+### <a name="day-27-load-model-from-registry-with-custom-preprocessing"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q28: Day 28 — Fix a Broken MLflow Project and Re-Run It**  
+### <a name="day-28-fix-a-broken-mlflow-project-and-re-run-it"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q29: Day 29 — Fix MLflow's Remote Artifact-Store Wiring (PostgreSQL + SeaweedFS)**  
+### <a name="day-29-fix-mlflows-remote-artifact-store-wiring-postgresql-seaweedfs"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q30: Day 30 — End-to-End MLflow: Register, Serve, and Monitor the Champion**  
+### <a name="day-30-end-to-end-mlflow-register-serve-and-monitor-the-champion"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q31: Day 31 — Fix a Broken Config-Driven Training Setup**  
+### <a name="day-31-fix-a-broken-config-driven-training-setup"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q32: Day 32 — Make a Training Script Reproducible (Seed Discipline)**  
+### <a name="day-32-make-a-training-script-reproducible-seed-discipline"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q33: Day 33 — Fix a Broken Evaluation Script and Metrics Report**  
+### <a name="day-33-fix-a-broken-evaluation-script-and-metrics-report"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q34: Day 34 — Fix a Broken Cross-Validation Loop (Stratified + Aggregates)**  
+### <a name="day-34-fix-a-broken-cross-validation-loop-stratified-aggregates"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q35: Day 35 — Fix a Broken Optuna Tuner with MLflow Logging**  
+### <a name="day-35-fix-a-broken-optuna-tuner-with-mlflow-logging"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q36: Day 36 — Fix a Multi-Model Bake-Off in the MLflow Compare View**  
+### <a name="day-36-fix-a-multi-model-bake-off-in-the-mlflow-compare-view"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q37: Day 37 — Fix a Four-Stage Training Pipeline's Inter-Stage Wiring**  
+### <a name="day-37-fix-a-four-stage-training-pipelines-inter-stage-wiring"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q38: Day 38 — Fix a Parallel-Training Bake-Off (n_jobs Backend)**  
+### <a name="day-38-fix-a-parallel-training-bake-off-n_jobs-backend"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q39: Day 39 — Make a PyTorch Trainer Device-Aware with Checkpointing**  
+### <a name="day-39-make-a-pytorch-trainer-device-aware-with-checkpointing"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q40: Day 40 — Fix and Complete a Five-Stage Training Capstone**  
+### <a name="day-40-fix-and-complete-a-five-stage-training-capstone"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q41: Day 41 — Scaffold a Feast Feature Repository and Build a Training Set**  
+### <a name="day-41-scaffold-a-feast-feature-repository-and-build-a-training-set"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q42: Day 42 — Define a Feast Feature View (Entity + Field Schema)**  
+### <a name="day-42-define-a-feast-feature-view-entity-field-schema"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q43: Day 43 — Materialize Features and Read Them from the Online Store**  
+### <a name="day-43-materialize-features-and-read-them-from-the-online-store"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q44: Day 44 — Store MLflow's Admin Password in HashiCorp Vault**  
+### <a name="day-44-store-mlflows-admin-password-in-hashicorp-vault"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q45: Day 45 — Authenticate MLflow to Vault via AppRole and Fix Its KV Policy**  
+### <a name="day-45-authenticate-mlflow-to-vault-via-approle-and-fix-its-kv-policy"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q46: Day 46 — Author Data-Quality Expectations with Great Expectations**  
+### <a name="day-46-author-data-quality-expectations-with-great-expectations"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q47: Day 47 — Debug a Failing Great Expectations Checkpoint**  
+### <a name="day-47-debug-a-failing-great-expectations-checkpoint"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q48: Day 48 — Enforce a Data-Quality Checkpoint as a Blocking CI Gate**  
+### <a name="day-48-enforce-a-data-quality-checkpoint-as-a-blocking-ci-gate"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q49: Day 49 — Secrets + Data-Quality Integration Capstone**  
+### <a name="day-49-secrets-data-quality-integration-capstone"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q50: Day 50 — Create Docker Image for ML Training Environment**  
+### <a name="day-50-create-docker-image-for-ml-training-environment"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q51: Day 51 — Create Multi-Stage Docker Build for ML Serving**  
+### <a name="day-51-create-multi-stage-docker-build-for-ml-serving"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q52: Day 52 — Fix a Broken Jupyter + MLflow + SeaweedFS Compose Stack**  
+### <a name="day-52-fix-a-broken-jupyter-mlflow-seaweedfs-compose-stack"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q53: Day 53 — Fix a Broken PyTorch Dockerfile (CPU-Wheel URL)**  
+### <a name="day-53-fix-a-broken-pytorch-dockerfile-cpu-wheel-url"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q54: Day 54 — Push ML Model Images to Container Registry**  
+### <a name="day-54-push-ml-model-images-to-container-registry"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q55: Day 55 — Fix a Broken Dockerfile HEALTHCHECK and EXPOSE**  
+### <a name="day-55-fix-a-broken-dockerfile-healthcheck-and-expose"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q56: Day 56 — Fix a Docker CI Pipeline with Git-SHA Tagging**  
+### <a name="day-56-fix-a-docker-ci-pipeline-with-git-sha-tagging"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q57: Day 57 — Serve an ML Model with Flask**  
+### <a name="day-57-serve-an-ml-model-with-flask"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q58: Day 58 — Serve an ML Model with FastAPI**  
+### <a name="day-58-serve-an-ml-model-with-fastapi"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q59: Day 59 — Run Batch Predictions on a Dataset**  
+### <a name="day-59-run-batch-predictions-on-a-dataset"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q60: Day 60 — Package a Model as a BentoML Service**  
+### <a name="day-60-package-a-model-as-a-bentoml-service"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q61: Day 61 — Deploy a Model-Serving Container via Portainer**  
+### <a name="day-61-deploy-a-model-serving-container-via-portainer"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q62: Day 62 — Implement A/B Testing for Model Deployment**  
+### <a name="day-62-implement-ab-testing-for-model-deployment"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q63: Day 63 — Async Predictions with a Redis-Backed Worker**  
+### <a name="day-63-async-predictions-with-a-redis-backed-worker"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q64: Day 64 — Serve Multiple Models Behind Unified API Gateway**  
+### <a name="day-64-serve-multiple-models-behind-unified-api-gateway"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q65: Day 65 — Simulate a Canary Rollout for Model Updates**  
+### <a name="day-65-simulate-a-canary-rollout-for-model-updates"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q66: Day 66 — Production Model Serving with Docker Compose**  
+### <a name="day-66-production-model-serving-with-docker-compose"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q67: Day 67 — Add Prometheus as a Grafana Data Source**  
+### <a name="day-67-add-prometheus-as-a-grafana-data-source"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q68: Day 68 — Build a Grafana Time-Series Panel for Prediction Accuracy**  
+### <a name="day-68-build-a-grafana-time-series-panel-for-prediction-accuracy"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q69: Day 69 — Build a Grafana Table Panel for Per-Feature Data Drift**  
+### <a name="day-69-build-a-grafana-table-panel-for-per-feature-data-drift"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q70: Day 70 — Enforce Accuracy Gates with Evidently + Grafana Alert**  
+### <a name="day-70-enforce-accuracy-gates-with-an-evidently-test-suite-and-a-grafana-alert"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q71: Day 71 — Build a 4-Panel Model-Overview Grafana Dashboard**  
+### <a name="day-71-build-a-4-panel-model-overview-grafana-dashboard"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q72: Day 72 — Configure a Grafana Contact Point and Notification Policy**  
+### <a name="day-72-configure-a-grafana-contact-point-and-notification-policy"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q73: Day 73 — Promote a Retrained Model via a Champion/Challenger Gate**  
+### <a name="day-73-promote-a-retrained-model-via-a-championchallenger-gate"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q74: Day 74 — Add a Custom Business Metric and a Grafana Version Variable**  
+### <a name="day-74-add-a-custom-business-metric-and-a-grafana-version-variable"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q75: Day 75 — Fix and Complete an End-to-End Monitoring Stack: Prometheus, Grafana, Evidently**  
+### <a name="day-75-fix-and-complete-an-end-to-end-monitoring-stack-prometheus-grafana-evidently"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q76: Day 76 — Create CI Pipeline for ML Code Linting and Testing**  
+### <a name="day-76-create-ci-pipeline-for-ml-code-linting-and-testing"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q77: Day 77 — Fix a Failing Data-Quality Job in Gitea Actions**  
+### <a name="day-77-fix-a-failing-data-quality-job-in-gitea-actions"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q78: Day 78 — Parallelise Tests via a Gitea Actions Matrix Strategy**  
+### <a name="day-78-parallelise-tests-via-a-gitea-actions-matrix-strategy"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q79: Day 79 — Publish CI Training Artefacts via upload-artifact**  
+### <a name="day-79-publish-ci-training-artefacts-via-upload-artifact"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q80: Day 80 — Wire Repository Secrets into a Gitea Actions Workflow**  
+### <a name="day-80-wire-repository-secrets-into-a-gitea-actions-workflow"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q81: Day 81 — Tag a Release and Publish to the Gitea Package Registry**  
+### <a name="day-81-tag-a-release-and-publish-to-the-gitea-package-registry"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q82: Day 82 — Compose Gitea Workflows via workflow_call**  
+### <a name="day-82-compose-gitea-workflows-via-workflow_call"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q83: Day 83 — Revert a Broken ML Release via the Gitea Revert Button**  
+### <a name="day-83-revert-a-broken-ml-release-via-the-gitea-revert-button"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q84: Day 84 — Enforce Branch Protection on the main Branch**  
+### <a name="day-84-enforce-branch-protection-on-the-main-branch"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q85: Day 85 — Submit Your First Argo Workflow**  
+### <a name="day-85-submit-your-first-argo-workflow"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q86: Day 86 — Fix a Broken Argo DAG Dependency Chain**  
+### <a name="day-86-fix-a-broken-argo-dag-dependency-chain"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q87: Day 87 — Pass Data Between Argo Steps with Output Parameters and Branching**  
+### <a name="day-87-pass-data-between-argo-steps-with-output-parameters-and-branching"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q88: Day 88 — Fix a Missing @task Decorator in a Prefect Flow**  
+### <a name="day-88-fix-a-missing-task-decorator-in-a-prefect-flow"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q89: Day 89 — Parallel Model Training with Argo withParam Fan-Out**  
+### <a name="day-89-parallel-model-training-with-argo-withparam-fan-out"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q90: Day 90 — Automated Retraining with Argo CronWorkflow**  
+### <a name="day-90-automated-retraining-with-argo-cronworkflow"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q91: Day 91 — Production ML Pipeline: Argo Workflows + MLflow on Kubernetes**  
+### <a name="day-91-production-ml-pipeline-argo-workflows-mlflow-on-kubernetes"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q92: Day 92 — Fix a Service targetPort Mismatch on a Kubernetes Deployment**  
+### <a name="day-92-fix-a-service-targetport-mismatch-on-a-kubernetes-deployment"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q93: Day 93 — Fix a Broken HorizontalPodAutoscaler scaleTargetRef**  
+### <a name="day-93-fix-a-broken-horizontalpodautoscaler-scaletargetref"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q94: Day 94 — Fix a Broken KServe InferenceService storageUri**  
+### <a name="day-94-fix-a-broken-kserve-inferenceservice-storageuri"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q95: Day 95 — Complete a Kubeflow Pipeline and Run It via the KFP UI**  
+### <a name="day-95-complete-a-kubeflow-pipeline-and-run-it-via-the-kfp-ui"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q96: Day 96 — Deploy a GitOps Application via the ArgoCD NEW APP Form**  
+### <a name="day-96-deploy-a-gitops-application-via-the-argocd-new-app-form"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q97: Day 97 — Capstone (1/4): End-to-End MLOps System — Train, Register, Serve**  
+### <a name="day-97-capstone-1-4-end-to-end-mlops-system-train-register-serve"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q98: Day 98 — Capstone (2/4): Monitoring and Automated Retraining**  
+### <a name="day-98-capstone-2-4-monitoring-and-automated-retraining"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q99: Day 99 — Capstone (3/4): GitOps Continuous Deployment with ArgoCD**  
+### <a name="day-99-capstone-3-4-gitops-continuous-deployment-with-argocd"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
+---
+
+## **Q100: Day 100 — Capstone (4/4): Close the Loop with Prometheus + Grafana Observability**  
+### <a name="day-100-capstone-4-4-close-the-loop-with-prometheus-grafana-observability"></a>
+
+#### 📝 **Task Description**
+
+#### ✅ **Solution**
+
