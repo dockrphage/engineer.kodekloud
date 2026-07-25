@@ -401,15 +401,98 @@ Running black --check src/ from the project directory exits with status 0.
 
 #### ✅ **Solution**
 
+```
+root@controlplane ~/code/fraud-detection via 🐍 v3.12.3 ➜  history
+    1  cd fraud-detection/
+    2  ruff chk src
+    3  ruff check src/
+    4  black --check src/
+    5  vim pyproject.toml 
+    6  black src/
+    7  ruff --check --fix src/
+    8  ruff check --fix src/
+    9  ruff check src/
+   10  black --check src/
+   11  history
+
+```
+
 ---
 
 ## **Q7: Day 7 — Test and Package the Fraud-Detection Module**  
 ### <a name="day-7-test-and-package-the-fraud-detection-module"></a>
 
 #### 📝 **Task Description**
+```
+The xFusionCorp Industries deployment team requires the fraud-detection module to be validated through unit tests and to be packaged as an installable Python distribution. The module's source code and a draft pyproject.toml file can be found at /root/code/fraud-detection/. Your task is to create unit tests for the module, rectify the packaging configuration, and build a compliant wheel.
+
+
+The project at /root/code/fraud-detection/ contains the module source under src/fraud_detection/ — a predict() function that flags a transaction as fraud when its amount (the first feature value) exceeds 100. The source is complete; you do not need to modify it. pytest and build are already installed. Use python3 rather than python.
+
+The end state must satisfy the following:
+
+Unit tests: tests/test_predict.py contains at least two tests that import predict from fraud_detection and assert on its output — one fraudulent row (amount > 100, expect 1) and one legitimate row (amount <= 100, expect 0); pytest run from the project directory passes.
+Packaging configuration: the corrected pyproject.toml satisfies every one of the following:
+a [build-system] section with requires = ["setuptools>=61.0", "wheel"] and build-backend = "setuptools.build_meta";
+name is fraud_detection;
+version is 0.1.0;
+requires-python is >=3.10;
+dependencies is ["scikit-learn", "pandas", "numpy"];
+pytest can import the package from src/ — declare [tool.pytest.ini_options] with pythonpath = ["src"].
+Built artifact: building the package produces a wheel named fraud_detection-0.1.0-*.whl under dist/.
+```
 
 #### ✅ **Solution**
 
+```
+cd /root/code/fraud-detection/
+mkdir -p tests
+vim tests/test_predict.py
+```
+```python
+import pytest
+from fraud_detection import predict
+
+def test_fraudulent_transaction():
+    """Test that amounts > 100 are flagged as fraud."""
+    # Create a batch with one fraudulent transaction (amount > 100)
+    transactions = [[150, 0.5, 0.3, 0.2]]
+    result = predict(transactions)
+    assert result == [1], f"Expected [1] for fraudulent transaction, got {result}"
+
+def test_legitimate_transaction():
+    """Test that amounts <= 100 are not flagged as fraud."""
+    # Create a batch with one legitimate transaction (amount <= 100)
+    transactions = [[75, 0.5, 0.3, 0.2]]
+    result = predict(transactions)
+    assert result == [0], f"Expected [0] for legitimate transaction, got {result}"
+```
+```
+vim pyproject.toml
+```
+```toml
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fraud_detection"
+version = "0.1.0"
+description = "Fraud detection model for xFusionCorp Industries"
+requires-python = ">=3.10"
+dependencies = [
+    "scikit-learn",
+    "pandas",
+    "numpy"
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+```
+```
+pytest tests/
+python3 -m build
+```
 ---
 
 ## **Q8: Day 8 — Fix a Broken pre-commit Configuration**  
@@ -418,6 +501,22 @@ Running black --check src/ from the project directory exits with status 0.
 #### 📝 **Task Description**
 
 #### ✅ **Solution**
+
+```
+root@controlplane ~/code/fraud-detection via 🐍 v3.12.3 ➜  history
+    1  cd fraud-detection/
+    2  ruff chk src
+    3  ruff check src/
+    4  black --check src/
+    5  vim pyproject.toml 
+    6  black src/
+    7  ruff --check --fix src/
+    8  ruff check --fix src/
+    9  ruff check src/
+   10  black --check src/
+   11  history
+
+```
 
 ---
 
